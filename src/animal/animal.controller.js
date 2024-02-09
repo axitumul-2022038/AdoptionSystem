@@ -37,3 +37,16 @@ export const updateAnimal = async(req, res) =>{
         return res.status(500).send({message: 'Error updating acoount'})
     }
 }
+
+export const deleteA = async(req, res)=>{
+    try {
+        let{id} = req.params
+        let deleteAnimal = await Animal.findOneAndDelete({_id: id})
+        if(!deleteAnimal) return res.status(404).send({message: 'Animal not found and not delete'})
+        return res.send({message: `Animal with name ${deleteAnimal.nameAnimal} deleted successfully`})
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({message: 'Error deleting animal'})
+        
+    }
+}
