@@ -46,7 +46,7 @@ export const deleteA = async(req, res)=>{
         return res.send({message: `Animal with name ${deleteAnimal.nameAnimal} deleted successfully`})
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Error deleting animal'})
+        return res.status(500).send({message: 'Error deleting Animal'})
         
     }
 }
